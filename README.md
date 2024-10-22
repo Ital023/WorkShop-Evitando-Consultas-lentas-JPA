@@ -20,7 +20,7 @@ Sendo necessário alguns cuidados, sempre olhar o log para verificar se a consul
 ## Muitos para Um (Many To One)
 ### Código a ser analisado
 
-Temos duas entidades relacionado por Many To One
+Temos duas entidades relacionadas por Many To One
   - Employee
     ```
       @Entity
@@ -56,7 +56,7 @@ Temos duas entidades relacionado por Many To One
       }
 
     ```
-Então é proposto que seja feita uma consulta no GetMapping da maneira casual, veja o exemplo: 
+#### Então é proposto que seja feita uma consulta no GetMapping da maneira casual, veja o exemplo: 
   - Employee Controller
 
   ```
@@ -73,7 +73,7 @@ Então é proposto que seja feita uma consulta no GetMapping da maneira casual, 
   	}
   }
   ```
-O retorno do JSON, aparentemente está ok. Será mesmo? Essa consulta é realmente eficiente?
+#### O retorno do JSON, aparentemente está ok. Será mesmo? Essa consulta é realmente eficiente?
 - Veja o retorno do JSON
   ```
   [
@@ -124,7 +124,7 @@ O retorno do JSON, aparentemente está ok. Será mesmo? Essa consulta é realmen
       }
       ...
   ```
-No entanto, se formos ver o log de acesso ao banco, iremos se deparar com esse log: 
+#### No entanto, se formos ver o log de acesso ao banco, iremos se deparar com esse log: 
  ```
   Hibernate: 
       select
@@ -175,7 +175,8 @@ No entanto, se formos ver o log de acesso ao banco, iremos se deparar com esse l
       where
           d1_0.id=?
 ```
-
+#### Conclusao
+ - É feito um acesso toda vez que é visto um novo ID, enfraquecendo a consulta SQL.
 
 
 
