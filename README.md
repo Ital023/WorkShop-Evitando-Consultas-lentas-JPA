@@ -1,9 +1,14 @@
-# Spring Security Estudos Italo
+# WorkShop Evitando Consultas Lentas JPA
+
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 
 # Sobre o projeto
-Este repositório é destinado aos meus estudos sobre Spring Security com OAuth2. O projeto implementa um Authorization Server e Resource Server, utilizando as interfaces do Spring Security para gerenciar autenticação e autorização, focando em práticas seguras e modernas para proteger APIs RESTful.
+Neste repositório, explico detalhadamente o problema N+1 no contexto de relacionamentos Many-to-One e Many-to-Many usando JPA Hibernate. A ideia é demonstrar como consultas ineficientes podem surgir ao acessar entidades relacionadas e como isso afeta a performance do banco de dados.
+
+Você encontrará exemplos práticos de como identificar o problema e as melhores abordagens para solucioná-lo, como o uso de FetchType.LAZY, JOIN FETCH, e outras otimizações.
+
+Este workshop é ideal para quem quer entender melhor o comportamento do JPA em relação a consultas SQL e melhorar a performance das aplicações Spring Boot.
 
 ### Tópicos discutidos no WorkShop
   - JPQL
@@ -188,20 +193,7 @@ Temos duas entidades relacionadas por Many To One
 - Spring Boot
 - JPA / Hibernate
 - Maven
-- Oauth2
-- Resource Server
-- Authorization Server
   
-
-# Rotas
-&#9679;	Produtos
-
-| Método | Caminho                      | Descrição                                           | Role Necessária                  |
-| ------ | ---------------------------- | -------------------------------------------------- | -------------------------------- |
-| GET    | /products                  | Retorna uma lista de produtos                        | Nenhuma            |
-| GET    | /products/{id}             | Retorna um produto específico pelo ID.              | Nenhuma                          |
-| POST   | /products                  | Adiciona um novo produto.                           | Nenhuma                     |
-
 # Como executar o projeto
 
 ## Back end
@@ -209,7 +201,7 @@ Pré-requisitos: Java 17
 
 ```bash
 # clonar repositório
-git clone https://github.com/Ital023/Spring-Security.git
+git clone https://github.com/Ital023/WorkShop-Evitando-Consultas-lentas-JPA.git
 
 # executar o projeto
 ./mvnw spring-boot:run
