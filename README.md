@@ -180,10 +180,48 @@ Temos duas entidades relacionadas por Many To One
       where
           d1_0.id=?
 ```
-#### Conclusao
- - É feito um acesso toda vez que é visto um novo ID, enfraquecendo a consulta SQL.
+#### O que aconteceu?
+ - Foi feito um acesso toda vez que é visto um novo ID, enfraquecendo a consulta SQL.
+ - Isso deixa a consulta da JPA ineficiente, sendo necessário a tomada de medidas preventivas na consulta para que isso não aconteça.
 
+#### Como resolver esse problema?
+- Podemos colocar uma consulta query personalizada usando o JOIN FETCH
+    - Dessa maneira faz com que o JPA Hibernate faça um JOIN e realize a busca em apenas 1 ida ao DB, sendo assim, mais eficiente.
 
+    - Configuração no repository
+    
+     ```
+    @Query(value = "SELECT obj FROM Employee obj JOIN FETCH obj.department")
+        List<Employee> searchAll();
+    ```
+
+    - Configuração no controller
+       
+     ```
+    @GetMapping
+	public List<Employee> findAll() {
+		return employeeRepository.searchAll();
+	}
+    ```
+   
+### Na busca paginada de Many to One é um pouco diferente
+- Temos que adicionar um countQuery
+     - Configuração no repository
+
+    ```
+    @Query(value = "SELECT obj FROM Employee obj JOIN FETCH obj.department",
+    countQuery = "SELECT COUNT(obj) FROM Employee obj JOIN obj.department")
+    Page<Employee> searchAll(Pageable pageable);
+    ```
+
+    - Configuração no controller
+
+    ```
+    @GetMapping(value = "/pageable")
+	public Page<Employee> findAllPageable(Pageable pageable) {
+		return employeeRepository.searchAll(pageable);
+	}
+    ```
 
 
 
