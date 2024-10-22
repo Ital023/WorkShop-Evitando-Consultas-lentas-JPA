@@ -1,0 +1,31 @@
+INSERT INTO tb_product (name, price) VALUES ('Computador', 4000.0);
+INSERT INTO tb_product (name, price) VALUES ('Tablet', 800.0);
+INSERT INTO tb_product (name, price) VALUES ('Mouse', 70.0);
+INSERT INTO tb_product (name, price) VALUES ('Camera', 2000.0);
+INSERT INTO tb_product (name, price) VALUES ('Ventilador', 200.0);
+INSERT INTO tb_product (name, price) VALUES ('TV', 2200.0);
+INSERT INTO tb_product (name, price) VALUES ('Tripe', 150.0);
+INSERT INTO tb_product (name, price) VALUES ('Mesa', 1500.0);
+INSERT INTO tb_product (name, price) VALUES ('Cadeira', 500.0);
+INSERT INTO tb_product (name, price) VALUES ('Armario', 3000.0);
+
+INSERT INTO tb_category (name) VALUES ('Eletronicos');
+INSERT INTO tb_category (name) VALUES ('Informatica');
+INSERT INTO tb_category (name) VALUES ('Eletrodomesticos');
+INSERT INTO tb_category (name) VALUES ('Moveis');
+INSERT INTO tb_category (name) VALUES ('Acessorios');
+INSERT INTO tb_category (name) VALUES ('Audiovisual');
+
+INSERT INTO tb_product_category (product_id, category_id) VALUES (1, 1);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (1, 2);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (2, 1);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (2, 2);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (3, 2);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (4, 6);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (5, 3);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (6, 1);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (6, 3);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (7, 5);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (8, 4);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (9, 4);
+INSERT INTO tb_product_category (product_id, category_id) VALUES (10, 4);

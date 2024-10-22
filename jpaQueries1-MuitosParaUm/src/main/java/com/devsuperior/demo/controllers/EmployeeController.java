@@ -2,6 +2,7 @@ package com.devsuperior.demo.controllers;
 
 import java.util.List;
 
+import com.devsuperior.demo.projections.EmployeesDetailsProjection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
